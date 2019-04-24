@@ -46,3 +46,18 @@ $(document).ready(function(){
 
     });
   });
+  $(document).ready(function() {
+    $('#meuFormulario').on('submit', function(e) {
+      e.preventDefault();
+      var len1 = $('#usuario').val();
+      var len2 = $('#senha').val();
+      if (len1 == 'Rogerio' && len2 == '123') {
+        localStorage.setItem("usuario", $('#usuario').val());
+        localStorage.setItem("senha", $('#senha').val());
+
+        this.submit();
+      } else {
+        alert("Acesso NEGADO!!!")
+      }
+    });
+  });
