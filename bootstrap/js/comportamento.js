@@ -73,7 +73,7 @@ $(document).ready(function(){
 
        var api_url = 'https://api.linkpreview.net'
 
-       var key = '5ccb9525ad6e74755159c3ffa27fa10e40287ac64f332' // real
+       var key = '5cd220018b9c41f376f49e57d4d7787a5b5b4489edd25' // real
 
        $.ajax({
 
