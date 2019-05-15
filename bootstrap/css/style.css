@@ -100,3 +100,7 @@ h4{
   padding: 50px;
   display: none;
 }
+.map {
+    height: 400px;
+    width: 100%;
+  }
