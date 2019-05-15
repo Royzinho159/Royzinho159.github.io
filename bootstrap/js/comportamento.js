@@ -73,7 +73,7 @@ $(document).ready(function(){
 
        var api_url = 'https://api.linkpreview.net'
 
-       var key = '5cd220018b9c41f376f49e57d4d7787a5b5b4489edd25' // real
+       var key = '5ccb9525ad6e74755159c3ffa27fa10e40287ac64f332' // real
 
        $.ajax({
 
@@ -103,4 +103,41 @@ $(document).ready(function(){
 
 
 
+   });
+   $(document).ready(function() {
+     var minhaview = new ol.View({
+       center: ol.proj.fromLonLat([-46.736804, -23.5247576]),
+       zoom: 16
+     });
+     var map = new ol.Map({
+       target: 'map',
+       layers: [
+         new ol.layer.Tile({
+           source: new ol.source.OSM()
+         })
+       ],
+       view: minhaview
+     });
+     $("#bt1").click(function() {
+       minhaview.animate({
+         center: ol.proj.fromLonLat([-46.5976273, -23.5519444]),
+         duration: 6000
+       });
+     });
+     $("#bt2").click(function() {
+       getLocation();
+     });
+     function getLocation() {
+       if (navigator.geolocation) {
+         navigator.geolocation.getCurrentPosition(showPosition);
+       } else {
+         alert("Geolocation is not supported by this browser.");
+       }
+     }
+     function showPosition(position) {
+       minhaview.animate({
+         center: ol.proj.fromLonLat([position.coords.longitude, position.coords.latitude]),
+         duration: 6000
+       });
+     }
    });
